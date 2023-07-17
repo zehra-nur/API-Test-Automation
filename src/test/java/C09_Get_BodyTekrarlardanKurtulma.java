@@ -55,11 +55,11 @@ public class C09_Get_BodyTekrarlardanKurtulma {
 
         response.then().assertThat().statusCode(200)
                                     .contentType(ContentType.JSON)
-                .body("firstname", equalTo("Susan"),
-                        "lastname",equalTo("Jackson"),
-                        "totalprice",lessThan(1000),
-                        "depositpaid",equalTo(true),
-                        "additionalneeds",notNullValue());
+                                    .body("firstname", equalTo("Susan"),
+                                            "lastname",equalTo("Jackson"),
+                                            "totalprice",lessThan(1000),
+                                            "depositpaid",equalTo(true),
+                                            "additionalneeds",notNullValue());
 
     }
 }
