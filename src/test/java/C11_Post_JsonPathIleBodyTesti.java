@@ -73,13 +73,13 @@ public class C11_Post_JsonPathIleBodyTesti {
 
         response.then().assertThat().statusCode(200)
                                     .contentType(ContentType.JSON)
-                .body("booking.firstname", equalTo("Zehra"),
-                        "booking.lastname",equalTo("Nur"),
-                        "booking.totalprice",equalTo(500),
-                        "booking.depositpaid",equalTo(false),
-                        "booking.bookingdates.checkin",equalTo("2023-01-10"),
-                        "booking.bookingdates.checkout",equalTo("2023-01-20"),
-                        "booking.additionalneeds",equalTo("Breakfast"));
+                                    .body("booking.firstname", equalTo("Zehra"),
+                                             "booking.lastname",equalTo("Nur"),
+                                             "booking.totalprice",equalTo(500),
+                                             "booking.depositpaid",equalTo(false),
+                                             "booking.bookingdates.checkin",equalTo("2023-01-10"),
+                                             "booking.bookingdates.checkout",equalTo("2023-01-20"),
+                                             "booking.additionalneeds",equalTo("Breakfast"));
 
     }
 }
