@@ -33,8 +33,6 @@ public class C12_Get_ResponseBodyTestiListKullanimi {
 
         Response response = given().when().get(url);
 
-        response.prettyPrint();
-
         // 4- Assertion
         /*
           response body'sindeki
