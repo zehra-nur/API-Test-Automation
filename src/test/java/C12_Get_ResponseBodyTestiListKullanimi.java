@@ -45,7 +45,7 @@ public class C12_Get_ResponseBodyTestiListKullanimi {
         response.then().assertThat().statusCode(200)
                                     .contentType(ContentType.JSON)
                                     .body("data.id",hasSize(24),
-                                            "data.employee_name",containsInRelativeOrder("Ashton Cox"),
+                                            "data.employee_name",hasItems("Ashton Cox"),
                                             "data.employee_age",hasItems(61,21,35));
 
     }
