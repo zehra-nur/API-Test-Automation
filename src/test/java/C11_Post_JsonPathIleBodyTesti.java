@@ -1,11 +1,10 @@
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import org.hamcrest.Matchers;
 import org.json.JSONObject;
 import org.junit.Test;
 
+import static org.hamcrest.Matchers.*;
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.CoreMatchers.equalTo;
 
 public class C11_Post_JsonPathIleBodyTesti {
 
