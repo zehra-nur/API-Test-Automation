@@ -12,7 +12,6 @@ public class C15_Get_SoftAssertIleExpectedDataTesti {
     /*
         http://dummy.restapiexample.com/api/v1/employee/3 url’ine bir GET request
         gonderdigimizde donen response’un asagidaki gibi oldugunu test edin.
-
            Response Body
            {
            "status": "success",
@@ -69,32 +68,27 @@ public class C15_Get_SoftAssertIleExpectedDataTesti {
         softAssert.assertEquals(responseJsonPath.get("message"),expectedResponseBody.get("message"));
 
         softAssert.assertEquals(responseJsonPath.get("data.id"),
-                                expectedResponseBody.getJSONObject("data").get("id"));
+                expectedResponseBody.getJSONObject("data").get("id"));
 
         softAssert.assertEquals(responseJsonPath.get("data.employee_name"),
-                                expectedResponseBody.getJSONObject("data").get("employee_name"));
+                expectedResponseBody.getJSONObject("data").get("employee_name"));
 
         softAssert.assertEquals(responseJsonPath.get("data.employee_salary"),
-                                expectedResponseBody.getJSONObject("data").get("employee_salary"));
+                expectedResponseBody.getJSONObject("data").get("employee_salary"));
 
         softAssert.assertEquals(responseJsonPath.get("data.employee_age"),
-                                expectedResponseBody.getJSONObject("data").get("employee_age"));
+                expectedResponseBody.getJSONObject("data").get("employee_age"));
 
         softAssert.assertEquals(responseJsonPath.get("data.profile_image"),
-                                expectedResponseBody.getJSONObject("data").get("profile_image"));
+                expectedResponseBody.getJSONObject("data").get("profile_image"));
 
         softAssert.assertAll();
 
         /*
            output:
-
            java.lang.AssertionError: The following asserts failed:
 	       expected [Ali Can] but found [Ashton Cox],
 	       expected [36] but found [66]
-
-
          */
-
-
     }
 }
