@@ -1,3 +1,5 @@
+package tests;
+
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.hamcrest.Matchers;
@@ -47,10 +49,10 @@ public class C13_Get_ExpectedDataOlusturma {
         response
                 .then()
                      .assertThat()
-                .body("userId", equalTo(3),
-                        "id", equalTo(22),
-                        "title", equalTo("dolor sint quo a velit explicabo quia nam"),
-                        "body", equalTo("eos qui et ipsum ipsam suscipit aut\nsed omnis non odio\nexpedita earum mollitia molestiae aut atque rem suscipit\nnam impedit esse"));
+                        .body("userId", equalTo(3),
+                              "id", equalTo(22),
+                              "title", equalTo("dolor sint quo a velit explicabo quia nam"),
+                              "body", equalTo("eos qui et ipsum ipsam suscipit aut\nsed omnis non odio\nexpedita earum mollitia molestiae aut atque rem suscipit\nnam impedit esse"));
          */
 
         JsonPath responseJsonPath = response.jsonPath();

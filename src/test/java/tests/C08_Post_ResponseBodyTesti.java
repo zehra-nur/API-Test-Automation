@@ -1,3 +1,5 @@
+package tests;
+
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.hamcrest.Matchers;
@@ -52,10 +54,12 @@ public class C08_Post_ResponseBodyTesti {
         // 4- Assertion
 
         response
-                .then().assertThat().statusCode(201)
-                                    .contentType(ContentType.JSON)
-                                    .body("title", Matchers.equalTo("API"))
-                                    .body("userId", Matchers.lessThan(100))
-                                    .body("body", Matchers.containsString("API"));
+                .then()
+                  .assertThat()
+                     .statusCode(201)
+                     .contentType(ContentType.JSON)
+                     .body("title", Matchers.equalTo("API"))
+                     .body("userId", Matchers.lessThan(100))
+                     .body("body", Matchers.containsString("API"));
     }
 }

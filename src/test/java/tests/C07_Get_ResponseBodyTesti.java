@@ -1,3 +1,5 @@
+package tests;
+
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.hamcrest.Matchers;
@@ -33,9 +35,11 @@ public class C07_Get_ResponseBodyTesti {
         // 4- Assertion
 
         response
-                .then().assertThat().statusCode(200)
-                                    .contentType(ContentType.JSON)
-                                    .body("userId", Matchers.equalTo(5))
-                                    .body("title",Matchers.equalTo("optio dolor molestias sit"));
+                .then()
+                  .assertThat()
+                    .statusCode(200)
+                    .contentType(ContentType.JSON)
+                    .body("userId", Matchers.equalTo(5))
+                    .body("title",Matchers.equalTo("optio dolor molestias sit"));
     }
 }

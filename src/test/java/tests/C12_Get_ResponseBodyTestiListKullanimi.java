@@ -1,3 +1,5 @@
+package tests;
+
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.hamcrest.Matchers;
@@ -42,11 +44,13 @@ public class C12_Get_ResponseBodyTestiListKullanimi {
           test edin.
          */
 
-        response.then().assertThat().statusCode(200)
-                                    .contentType(ContentType.JSON)
-                                    .body("data.id",hasSize(24),
-                                            "data.employee_name",hasItems("Ashton Cox"),
-                                            "data.employee_age",hasItems(61,21,35));
-
+        response
+                .then()
+                  .assertThat()
+                  .statusCode(200)
+                  .contentType(ContentType.JSON)
+                  .body("data.id",hasSize(24),
+                          "data.employee_name",hasItems("Ashton Cox"),
+                          "data.employee_age",hasItems(61,21,35));
     }
 }

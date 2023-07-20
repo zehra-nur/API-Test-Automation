@@ -1,3 +1,5 @@
+package tests;
+
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.json.JSONObject;
@@ -70,15 +72,17 @@ public class C11_Post_JsonPathIleBodyTesti {
 
         // 4- Assertion
 
-        response.then().assertThat().statusCode(200)
-                                    .contentType(ContentType.JSON)
-                                    .body("booking.firstname", equalTo("Zehra"),
-                                             "booking.lastname",equalTo("Nur"),
-                                             "booking.totalprice",equalTo(500),
-                                             "booking.depositpaid",equalTo(false),
-                                             "booking.bookingdates.checkin",equalTo("2023-01-10"),
-                                             "booking.bookingdates.checkout",equalTo("2023-01-20"),
-                                             "booking.additionalneeds",equalTo("Breakfast"));
-
+        response
+                .then()
+                  .assertThat()
+                    .statusCode(200)
+                    .contentType(ContentType.JSON)
+                    .body("booking.firstname", equalTo("Zehra"),
+                            "booking.lastname",equalTo("Nur"),
+                            "booking.totalprice",equalTo(500),
+                            "booking.depositpaid",equalTo(false),
+                            "booking.bookingdates.checkin",equalTo("2023-01-10"),
+                            "booking.bookingdates.checkout",equalTo("2023-01-20"),
+                            "booking.additionalneeds",equalTo("Breakfast"));
     }
 }

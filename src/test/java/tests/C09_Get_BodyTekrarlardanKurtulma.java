@@ -1,3 +1,5 @@
+package tests;
+
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Test;
@@ -51,13 +53,15 @@ public class C09_Get_BodyTekrarlardanKurtulma {
                                     .body("additionalneeds", Matchers.notNullValue());
           */
 
-        response.then().assertThat().statusCode(200)
-                                    .contentType(ContentType.JSON)
-                                    .body("firstname", equalTo("Susan"),
-                                            "lastname",equalTo("Jackson"),
-                                            "totalprice",lessThan(1000),
-                                            "depositpaid",equalTo(true),
-                                            "additionalneeds",notNullValue());
-
+        response
+                .then()
+                  .assertThat()
+                    .statusCode(200)
+                    .contentType(ContentType.JSON)
+                    .body("firstname", equalTo("Susan"),
+                            "lastname",equalTo("Jackson"),
+                            "totalprice",lessThan(1000),
+                            "depositpaid",equalTo(true),
+                            "additionalneeds",notNullValue());
     }
 }
