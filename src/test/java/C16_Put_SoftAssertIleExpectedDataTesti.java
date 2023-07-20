@@ -1,3 +1,4 @@
+
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
@@ -30,17 +31,18 @@ public class C16_Put_SoftAssertIleExpectedDataTesti {
 
     @Test
     public void test01(){
+
         // 1- End-point Request body hazirlama
+
         String url = "http://dummy.restapiexample.com/api/v1/update/21";
 
         JSONObject requestBody = new JSONObject();
-
         JSONObject data = new JSONObject();
 
         data.put("name", "Ahmet");
         data.put("salary", "1230");
         data.put("age", "44");
-        data.put("id", "40");
+        data.put("id", 40);
 
         requestBody.put("status", "success");
         requestBody.put("data", data);
@@ -56,8 +58,10 @@ public class C16_Put_SoftAssertIleExpectedDataTesti {
         // 3- Request gonderip, donen response'i kaydetme
 
         Response response = given().contentType(ContentType.JSON)
-                            .when().body(requestBody)
+                            .when().body(requestBody.toString())
                             .put(url);
+
+        response.prettyPrint();
 
         // 4- Assertion
 
@@ -65,24 +69,24 @@ public class C16_Put_SoftAssertIleExpectedDataTesti {
 
         JsonPath responseJsonPath = response.jsonPath();
 
-        softAssert.assertEquals(responseJsonPath.get("status"),expectedData.get("status"));
+        softAssert.assertEquals(responseJsonPath.get("status"), expectedData.get("status"));
 
-        softAssert.assertEquals(responseJsonPath.get("message"),expectedData.get("message"));
+        softAssert.assertEquals(responseJsonPath.get("message"), expectedData.get("message"));
 
         softAssert.assertEquals(responseJsonPath.get("data.status"),
                                 expectedData.getJSONObject("data").get("status"));
 
         softAssert.assertEquals(responseJsonPath.get("data.data.name"),
-                               expectedData.getJSONObject("data").getJSONObject("data").get("name"));
-
-        softAssert.assertEquals(responseJsonPath.get("data.data.id"),
-                expectedData.getJSONObject("data").getJSONObject("data").get("id"));
+                                expectedData.getJSONObject("data").getJSONObject("data").get("name"));
 
         softAssert.assertEquals(responseJsonPath.get("data.data.salary"),
-                expectedData.getJSONObject("data").getJSONObject("data").get("salary"));
+                                expectedData.getJSONObject("data").getJSONObject("data").get("salary"));
 
         softAssert.assertEquals(responseJsonPath.get("data.data.age"),
-                expectedData.getJSONObject("data").getJSONObject("data").get("age"));
+                                expectedData.getJSONObject("data").getJSONObject("data").get("age"));
+
+        softAssert.assertEquals(responseJsonPath.get("data.data.id"),
+                                expectedData.getJSONObject("data").getJSONObject("data").get("id"));
 
         softAssert.assertAll();
     }
