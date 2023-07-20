@@ -10,7 +10,7 @@ import static io.restassured.RestAssured.given;
 
 public class C16_Put_SoftAssertIleExpectedDataTesti {
     /*
-       http://dummy.restapiexample.com/api/v1/update/21 url’ine
+       https://dummy.restapiexample.com/api/v1/update/21 url’ine
        asagidaki body’ye sahip bir PUT request gonderdigimizde
        donen response’un asagidaki gibi oldugunu test edin.
 
@@ -34,7 +34,7 @@ public class C16_Put_SoftAssertIleExpectedDataTesti {
 
         // 1- End-point Request body hazirlama
 
-        String url = "http://dummy.restapiexample.com/api/v1/update/21";
+        String url = "https://dummy.restapiexample.com/api/v1/update/21";
 
         JSONObject requestBody = new JSONObject();
         JSONObject data = new JSONObject();
