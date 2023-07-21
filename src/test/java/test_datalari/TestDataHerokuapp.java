@@ -2,6 +2,10 @@ package test_datalari;
 
 import org.json.JSONObject;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
+
 public class TestDataHerokuapp {
     /*       Request body                                     Response Body
          {                                                {
@@ -44,6 +48,39 @@ public class TestDataHerokuapp {
 
         responseBody.put("bookingid", 24);
         responseBody.put("booking",bookingBody);
+
+        return responseBody;
+    }
+
+    public static Map<String,Object> requestBodyMapOlustur(){
+
+        Map<String,Object> requestbody = new HashMap<>();
+
+        requestbody.put("firstname" , "Ahmet");
+        requestbody.put("lastname" , "Bulut");
+        requestbody.put("totalprice" , 500.0);
+        requestbody.put("depositpaid" , false);
+        requestbody.put("bookingdates",bookingdatesMapOlustur());
+        requestbody.put("additionalneeds" , "wi-fi");
+
+        return requestbody;
+    }
+
+    public static Map<String,String> bookingdatesMapOlustur(){
+
+        Map<String,String> bookingdates = new HashMap<>();
+        bookingdates.put("checkin", "2021-06-01");
+        bookingdates.put("checkout", "2021-06-10");
+
+        return bookingdates;
+    }
+
+    public static Map<String,Object> responseBodyMapOlustur(){
+
+        Map<String,Object> responseBody = new HashMap<>();
+
+        responseBody.put("bookingid", 24);
+        responseBody.put("booking",requestBodyMapOlustur());
 
         return responseBody;
     }
