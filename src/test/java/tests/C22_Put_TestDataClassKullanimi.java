@@ -45,8 +45,8 @@ public class C22_Put_TestDataClassKullanimi extends BaseUrlJsonPlaceholder {
 
         // 3- request gonder ve donen response'i kaydet
 
-        Response response = given().contentType(ContentType.JSON)
-                            .when().spec(specJsonPlaceholder).body(requestBody.toString())
+        Response response = given().spec(specJsonPlaceholder).contentType(ContentType.JSON)
+                            .when().body(requestBody.toString())
                             .put("/{pp1}/{pp2}");
 
         JsonPath responseJsonPath = response.jsonPath();

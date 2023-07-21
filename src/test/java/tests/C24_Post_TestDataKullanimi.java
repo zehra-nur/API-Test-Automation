@@ -51,8 +51,8 @@ public class C24_Post_TestDataKullanimi extends BaseUrlHerokuapp {
 
         // 3- request gonder, donen response'i kaydet
 
-        Response response = given().contentType(ContentType.JSON)
-                            .when().spec(specHerokuapp).body(requestBody.toString())
+        Response response = given().spec(specHerokuapp).contentType(ContentType.JSON)
+                            .when().body(requestBody.toString())
                             .post("/{pp1}");
 
         JsonPath responseJsonPath = response.jsonPath();

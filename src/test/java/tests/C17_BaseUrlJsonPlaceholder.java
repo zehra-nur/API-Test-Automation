@@ -95,8 +95,8 @@ public class C17_BaseUrlJsonPlaceholder extends BaseUrlJsonPlaceholder {
 
         // 3- request gonder ve response'i kaydet
 
-        Response response = given()
-                            .when().spec(specJsonPlaceholder)
+        Response response = given().spec(specJsonPlaceholder)
+                            .when()
                             .delete("/{pp1}/{pp2}");
 
         // assertions

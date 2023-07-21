@@ -74,8 +74,8 @@ public class C19_BaseUrlHerokuappQueryParam extends BaseUrlHerokuapp {
 
         // 3- request gönder ve response'i kaydet
 
-        Response response = given()
-                            .when().spec(specHerokuapp)
+        Response response = given().spec(specHerokuapp)
+                            .when()
                             .get("/{pp1}");
 
         // assertion
